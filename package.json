@@ -1,0 +1,29 @@
+{
+  "name": "ignite",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Sell, Leonardo",
+  "license": "MIT",
+  "type": "module",
+
+  "scripts": {
+    "start": "cross-env NODE_ENV=producao node server",
+    "dev": "cross-env NODE_ENV=desenvolvimento nodemon server"
+  },
+  
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.5",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
