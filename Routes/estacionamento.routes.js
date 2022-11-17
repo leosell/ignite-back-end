@@ -3,12 +3,11 @@ import Estacionamento from "../models/Estacionamento.js";
 
 const estacionamento = express.Router()
 
-estacionamento.get('/', async (req, res) => {
+estacionamento.get('/busca', async (req, res) => {
     const estacionamentos = await Estacionamento.findAll().catch((error) => console.log(error))
 
     if (estacionamentos) {
-        return res
-            .json({estacionamentos})
+        return res.json({estacionamentos})
     } else {
         return null
     }
