@@ -39,4 +39,15 @@ estacionamento.post('/register', async (req, res) => {
     }
 })
 
+estacionamento.delete('/:id', async (req, res) => {
+    const id = req.params.id
+    const deletarId = await Estacionamento.findOne({ where: {id:id} }).catch((error) => { console.log(error) })
+    
+    if(deletarId) {
+        await deletarId.destroy()
+            .then(res.json(deletarId))
+            .catch((error) => console.log(error))
+    }
+})
+
 export default estacionamento;
