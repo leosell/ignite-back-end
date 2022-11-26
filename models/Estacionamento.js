@@ -54,6 +54,11 @@ const Estacionamento = conectando.define(
         funcionamento: {
             type: Sequelize.STRING,
             allowNull: false
+        },
+
+        horario: {
+            type: Sequelize.DATE,
+            allowNull: false
         }
     }
 )

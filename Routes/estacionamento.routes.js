@@ -14,7 +14,7 @@ estacionamento.get('/busca', async (req, res) => {
 })
 
 estacionamento.post('/register', async (req, res) => {
-    const { nome, cnpj, endereco, numero, bairro, cidade, estado, funcionamento } = req.body
+    const { nome, cnpj, endereco, numero, bairro, cidade, estado, funcionamento, horario } = req.body
 
     const verificandoEstacionamentoExistente = await Estacionamento.findOne({ where: { cnpj } }).catch((error) => console.log(error))
 
@@ -24,7 +24,7 @@ estacionamento.post('/register', async (req, res) => {
             .json({ message: 'Estacionamento já cadastrado!' })
     }
 
-    const novoEstacionamento = new Estacionamento({ nome, cnpj, endereco, numero, bairro, cidade, estado, funcionamento})
+    const novoEstacionamento = new Estacionamento({ nome, cnpj, endereco, numero, bairro, cidade, estado, funcionamento, horario })
     const salvarEstacionamento = await novoEstacionamento.save().catch((error) => {
         console.log(error)
         res
