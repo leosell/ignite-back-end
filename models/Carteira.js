@@ -28,7 +28,7 @@ const Carteira = conectando.define(
 
         dataTranferencia: {
             type: Sequelize.DATE,
-            allowNull: false
+            allowNull: true
         }
     }
 

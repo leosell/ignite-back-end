@@ -15,9 +15,9 @@ carteira.get('/', async (req, res) => {
 })
 
 carteira.post('/register', async (req, res) => {
-    const { saldo } = req.body
+    const { saldo, idUsuario } = req.body
 
-    const novoSaldo = new Carteira({ saldo })
+    const novoSaldo = new Carteira({ saldo, idUsuario })
     const salvarSaldo = await novoSaldo.save().catch((error) => {
         console.log(error)
         res
