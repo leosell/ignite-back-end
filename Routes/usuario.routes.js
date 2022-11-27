@@ -38,9 +38,7 @@ usuario.post('/register', async (req, res) => {
 })
 
 usuario.get('/busca', async (req, res) => {
-    const idUsuario = req.params.id
-
-    const usuario = await Usuario.findOne({ where: { idUsuario:idUsuario } }).catch((error) => console.log(error))
+    const usuario = await Usuario.findAll().catch((error) => console.log(error))
 
     if (usuario) {
         return res.json({usuario})
