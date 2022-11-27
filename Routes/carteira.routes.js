@@ -3,12 +3,12 @@ import Carteira from '../models/Carteira.js'
 
 const carteira = express.Router()
 
-carteira.get('/', async (req, res) => {
-    const saldo = await Carteira.findAll().catch((error) => console.log(error))
+carteira.get('/busca', async (req, res) => {
+    const carteira = await Carteira.findAll().catch((error) => console.log(error))
 
-    if (saldo) {
+    if (carteira) {
         return res
-            .json({saldo})
+            .json({carteira})
     } else {
         return null
     }
@@ -16,9 +16,10 @@ carteira.get('/', async (req, res) => {
 
 carteira.post('/register', async (req, res) => {
     const { saldo, idUsuario } = req.body
+    console.log(idUsuario)
 
     const novoSaldo = new Carteira({ saldo, idUsuario })
-    const salvarSaldo = await novoSaldo.save().catch((error) => {
+    const salvarSaldo = await novoSaldo.save({ where: { idUsuario } }).catch((error) => {
         console.log(error)
         res
             .status(500)
